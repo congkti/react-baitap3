@@ -1,0 +1,124 @@
+@font-face {
+  font-family: "Pony";
+  src: url(./../../assets/fonts/Pony.ttf);
+}
+.cinemaSeatBooking {
+  position: relative;
+  font-family: "Pony";
+  background: url(./../../assets/bgmovie.jpg) no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: white;
+  letter-spacing: 2px;
+  &::before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    inset: 0;
+  }
+  .seatLayout {
+    .screen {
+      transform: perspective(20px) rotateX(1deg);
+      box-shadow: rgba(226, 221, 171, 0.81) 0px 12px 20px 0px;
+    }
+
+    .seatRows {
+      text-align: left;
+      .seatNumber {
+        text-align: center;
+        font-size: 11px;
+        padding: 7px;
+        border-radius: 5px;
+        background-color: #bbb;
+        transition: all 0.15s;
+        &.push-x {
+          margin-right: 28px;
+          padding-left: 12px !important;
+          padding-right: 12px !important;
+        }
+        &.push-y {
+          margin-bottom: 28px;
+        }
+        &.title {
+          background-color: transparent;
+          font-size: 18px;
+          color: #fb923c;
+          padding: 2px;
+        }
+        &:hover:not(.title, .reserved),
+        &.select:not(.title) {
+          cursor: pointer;
+          background-color: #4ade80;
+        }
+        &.reserved {
+          background-color: #fb923c;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+  .seatBookInfo {
+    font-size: 14px;
+    color: #fb923c;
+    .guideline {
+      li {
+        position: relative;
+        padding-left: 40px;
+        margin-bottom: 8px;
+        &::before {
+          content: "";
+          width: 26px;
+          height: 22px;
+          border-radius: 5px;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        &.reserved::before {
+          background-color: #fb923c;
+        }
+        &.select::before {
+          background-color: #4ade80;
+        }
+        &.emty::before {
+          background-color: #bbb;
+        }
+      }
+    }
+
+    .tblKetQua {
+      width: 100%;
+      th,
+      tr,
+      td {
+        border: 1px solid white;
+        text-align: center;
+      }
+    }
+  }
+}
+
+// fix twaiwind css
+.grid {
+  display: grid;
+  display: -ms-grid;
+  display: -moz-grid;
+}
+.inline-grid {
+  display: inline-grid;
+  display: -ms-inline-grid;
+  display: -moz-inline-grid;
+}
+.grid-cols-13 {
+  grid-template-columns: repeat(13, 1fr);
+}
+.grid-cols-12 {
+  grid-template-columns: repeat(12, 1fr);
+}
+.grid-cols-10 {
+  grid-template-columns: repeat(10, 1fr);
+}
+.grid-cols-8 {
+  grid-template-columns: repeat(8, 1fr);
+}
